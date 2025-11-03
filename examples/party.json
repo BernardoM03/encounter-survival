@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Aelar",
+    "hp": 38,
+    "ac": 16,
+    "attack_bonus": 6,
+    "damage_dice": "1d8+4",
+    "initiative_bonus": 3,
+    "spells": [
+      { "name": "Magic Missile", "damage_dice": "3d4+3", "uses": 2 }
+    ],
+    "healing": { "name": "Cure Wounds", "heal_dice": "1d8+3", "uses": 1 }
+  },
+  {
+    "name": "Thora",
+    "hp": 44,
+    "ac": 18,
+    "attack_bonus": 5,
+    "damage_dice": "1d10+3",
+    "initiative_bonus": 1
+  }
+]
+

@@ -1,0 +1,43 @@
+[
+  {
+    "name": "Aelar",
+    "hp": 26,
+    "ac": 16,
+    "attack_bonus": 6,
+    "damage_dice": "1d8+4",
+    "initiative_bonus": 3
+  },
+  {
+    "name": "Thora",
+    "hp": 31,
+    "ac": 18,
+    "attack_bonus": 5,
+    "damage_dice": "1d10+3",
+    "initiative_bonus": 1
+  },
+  {
+    "name": "Bren",
+    "hp": 24,
+    "ac": 15,
+    "attack_bonus": 5,
+    "damage_dice": "1d6+3",
+    "initiative_bonus": 2
+  },
+  {
+    "name": "Mira",
+    "hp": 22,
+    "ac": 14,
+    "attack_bonus": 5,
+    "damage_dice": "1d8+2",
+    "initiative_bonus": 4
+  },
+  {
+    "name": "Garruk",
+    "hp": 35,
+    "ac": 17,
+    "attack_bonus": 5,
+    "damage_dice": "1d12+3",
+    "initiative_bonus": 0
+  }
+]
+
