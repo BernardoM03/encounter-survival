@@ -35,24 +35,23 @@ def format_summary(results, N, duration=None, party=None, monsters=None, avg_hp=
     ]
 
     if party and monsters:
-        lines.append(format_roster("🧙 Party Members", party))
-        lines.append(format_roster("👹 Monsters", monsters))
+        lines.append(format_roster("Party Members", party))
+        lines.append(format_roster("Monsters", monsters))
 
     lines += [
         "",
         f"Simulations run: {N}",
         f"Party Wins     : {results['party']}  ({results['party']/N*100:.1f}%)",
         f"Monster Wins   : {results['monsters']}  ({results['monsters']/N*100:.1f}%)",
-        f"Draws          : {results['draw']}  ({results['draw']/N*100:.1f}%)",
     ]
 
     if avg_hp:
-        lines += [
-            "",
-            "📊 Average Remaining HP (per encounter):",
-            f"  Party survivors : {avg_hp['party']:.2f}",
-            f"  Monster survivors: {avg_hp['monsters']:.2f}",
-        ]
+        lines.append("")
+        lines.append("📊 Average Remaining HP for Winners:")
+        if avg_hp['party'] > 0:
+            lines.append(f"  Party survivors : {avg_hp['party']:.2f}")
+        if avg_hp['monsters'] > 0:
+            lines.append(f"  Monster survivors: {avg_hp['monsters']:.2f}")
 
     if duration:
         lines.append(f"\nDuration       : {duration:.2f} seconds")
@@ -95,25 +94,25 @@ def main():
 
     results = {"party": 0, "monsters": 0, "draw": 0}
     total_hp = {"party": 0.0, "monsters": 0.0}
+    winning_battles = {"party": 0, "monsters": 0}
     N = 500
 
     results_dir, logs_dir = make_output_dirs()
-
-    print("🎲 Running simulations...")
     start = time.time()
 
     for i in range(1, N + 1):
         outcome, log_text, remaining = simulate_battle(party, monsters, return_remaining=True)
         results[outcome] += 1
-        total_hp["party"] += remaining["party"]
-        total_hp["monsters"] += remaining["monsters"]
+        if outcome in ["party", "monsters"]:
+            total_hp[outcome] += remaining[outcome]
+            winning_battles[outcome] += 1
         write_battle_log(log_text, logs_dir, i, outcome)
 
     duration = time.time() - start
 
     avg_hp = {
-        "party": total_hp["party"] / N,
-        "monsters": total_hp["monsters"] / N,
+        "party": total_hp["party"] / winning_battles["party"] if winning_battles["party"] > 0 else 0,
+        "monsters": total_hp["monsters"] / winning_battles["monsters"] if winning_battles["monsters"] > 0 else 0,
     }
 
     print(format_summary(results, N, duration, party, monsters, avg_hp))

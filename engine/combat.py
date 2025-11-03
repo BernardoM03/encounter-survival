@@ -62,14 +62,15 @@ def simulate_battle(party, monsters, return_remaining=False):
     # Convert log list to text
     log_text = "\n".join(log)
 
-    # Remaining HP totals
-    remaining = {
-        "party": sum(max(0, c.hp) for c in party),
-        "monsters": sum(max(0, m.hp) for m in monsters),
-    }
+    # Remaining HP totals - only calculate for winners
+    remaining = {"party": 0, "monsters": 0}
+    if outcome == "party":
+        remaining["party"] = sum(max(0, c.hp) for c in party)
+    elif outcome == "monsters":
+        remaining["monsters"] = sum(max(0, m.hp) for m in monsters)
 
     if return_remaining:
         return outcome, log_text, remaining
     else:
-        return outcome, log_te_
+        return outcome, log_text
 
