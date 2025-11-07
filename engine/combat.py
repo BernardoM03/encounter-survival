@@ -51,13 +51,13 @@ def simulate_battle(party, monsters, return_remaining=False):
     # Outcome
     if any(p.is_alive() for p in party) and not any(m.is_alive() for m in monsters):
         outcome = "party"
-        log.append("\n✅ Party is victorious!")
+        log.append("\nParty is victorious!")
     elif any(m.is_alive() for m in monsters) and not any(p.is_alive() for p in party):
         outcome = "monsters"
-        log.append("\n💀 The party has been defeated!")
+        log.append("\nThe party has been defeated!")
     else:
         outcome = "draw"
-        log.append("\n⚖️ The battle ends in a draw.")
+        log.append("\nThe battle ends in a draw.")
 
     # Convert log list to text
     log_text = "\n".join(log)

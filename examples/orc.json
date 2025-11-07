@@ -1,0 +1,40 @@
+[
+  {
+    "type": "martial",
+    "name": "Grummy",
+    "hp": 15,
+    "ac": 13,
+    "initiative_bonus": 1,
+    "actions": [
+      {"name": "Axe Swing", "type":"base", "damage_dice": "1d12+3", "attack_bonus": 5}
+    ],
+    "languages": ["Common", "Orcish"],
+    "passive_perception": 10
+  },
+  {
+    "type": "martial",
+    "name": "Grumster",
+    "hp": 15,
+    "ac": 13,
+    "initiative_bonus": 1,
+    "actions": [
+      {"name": "Axe Swing", "type":"base", "damage_dice": "1d12+3", "attack_bonus": 5}
+    ],
+    "languages": ["Common", "Orcish"],
+    "passive_perception": 10
+  },
+  {
+    "type": "martial",
+    "name": "Grummo",
+    "hp": 15,
+    "ac": 13,
+    "initiative_bonus": 1,
+    "actions": [
+      {"name": "Axe Swing", "type":"base", "damage_dice": "1d12+3", "attack_bonus": 5}
+    ],
+    "languages": ["Common", "Orcish"],
+    "passive_perception": 10
+  }
+]
+
+

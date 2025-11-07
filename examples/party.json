@@ -1,23 +1,59 @@
 [
   {
-    "name": "Aelar",
-    "hp": 38,
-    "ac": 16,
-    "attack_bonus": 6,
-    "damage_dice": "1d8+4",
-    "initiative_bonus": 3,
-    "spells": [
-      { "name": "Magic Missile", "damage_dice": "3d4+3", "uses": 2 }
+    "type": "spellcaster",
+    "name": "Adelaide",
+    "hp": 20,
+    "ac": 11,
+    "initiative_bonus": 1,
+    "spell_slots": { "1": 4, "2": 2},
+    "actions": [
+      {"name": "Ray of Frost", "type":"base", "damage_dice": "1d8", "attack_bonus": 6 },
+      {"name":"Magic Missile", "type":"attack_spell", "damage_dice":"3d4+3", "attack_bonus":null, "level":1},
+      {"name":"Chaos Bolt", "type":"attack_spell", "damage_dice":"2d8+1d6", "attack_bonus":6, "level":1}
     ],
-    "healing": { "name": "Cure Wounds", "heal_dice": "1d8+3", "uses": 1 }
+    "bonus_actions": [
+      { "name": "Healing Word","heal_dice": "1d4+4","level": 1},
+      { "name": "Spiritual Weapon","damage_dice": "1d8","level": 2}
+    ],
+    "languages": ["Common", "Elvish", "Draconic"],
+    "passive_perception": 8
   },
   {
-    "name": "Thora",
-    "hp": 44,
-    "ac": 18,
-    "attack_bonus": 5,
-    "damage_dice": "1d10+3",
-    "initiative_bonus": 1
+    "type": "spellcaster",
+    "name": "Atar",
+    "hp": 23,
+    "ac": 16,
+    "initiative_bonus": 1,
+    "spell_slots": { "1": 4, "2": 2},
+    "actions": [
+      {"name": "Guiding Bolt", "type":"attack_spell", "damage_dice": "4d6", "attack_bonus": 6, "level":1 },
+      {"name":"Sacred Flame", "type":"base", "damage_dice":"1d8", "attack_bonus":6 },
+      {"name": "Fire Bolt", "type":"base", "damage_dice": "1d10", "attack_bonus": 6 },
+      {"name": "Inflict Wounds", "type":"attack_spell", "damage_dice": "2d10", "attack_bonus": 6, "level":1 },
+      {"name": "Cure Wounds", "type":"healing_spell", "heal_dice": "1d8+4", "level":1 }
+    ],
+    "bonus_actions": [
+        { "name": "Spiritual Weapon","damage_dice": "1d8","level": 2}
+    ],
+    "languages": ["Common", "Draconic", "Dwarvish", "Elvish", "Giant"],
+    "passive_perception": 16
+  },
+  {
+    "type": "spellcaster",
+    "name": "Twila",
+    "hp": 16,
+    "ac": 11,
+    "initiative_bonus": 1,
+    "spell_slots": { "1": 4, "2": 2},
+    "actions": [
+      {"name": "Ray of Frost", "type":"base", "damage_dice": "1d8", "attack_bonus": 6 },
+      {"name": "Shocking Grasp", "type":"base", "damage_dice": "1d8", "attack_bonus": 6 },
+      {"name": "Ray of Sickness", "type":"attack_spell", "damage_dice": "2d8", "attack_bonus": 6, "level": 1 }
+    ],
+    "bonus_actions": [],
+    "languages": ["Common", "Elvish", "Common Sign Language"],
+    "passive_perception": 15
   }
 ]
+
 
